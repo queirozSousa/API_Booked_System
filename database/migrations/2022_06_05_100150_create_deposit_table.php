@@ -21,7 +21,7 @@ return new class extends Migration
             ->onDelete("CASCADE")
             ->onUpdate('CASCADE');
             $table->dateTime('date');
-            $table->string('adress');
+
             $table->string('name_counter');
             $table->string('b_i');
             $table->string('name_of_recipient');

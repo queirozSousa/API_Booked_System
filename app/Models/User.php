@@ -45,4 +45,13 @@ class User extends Authenticatable
     public function perfil(){
         return $this->hasOne(Perfil::class);
     }
+
+    public function attendece(){
+        return $this->hasMany(Atendimento::class);
+    }
+
+    public function deposit(){
+        return $this->hasMany(Deposito::class);
+    }
+
 }
