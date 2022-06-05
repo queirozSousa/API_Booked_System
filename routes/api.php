@@ -26,6 +26,8 @@ Route::get('/pais', [PaisController::class, 'index']);
 Route::post('/perfil/{user}', [PerfilController::class, 'store']);
 Route::get('/perfil/{id}', [PerfilController::class, 'show']);
 Route::get('/perfil', [PerfilController::class, 'index']);
+Route::get('/perfil/{id}/number', [PerfilController::class, 'data']);
+
 
 //Routes of Attendences
 Route::post('/atendimento/{user}', [AttendenceController::class, 'store']);
