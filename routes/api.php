@@ -24,6 +24,7 @@ Route::get('/pais', [PaisController::class, 'index']);
 
 //Routes of Perfil
 Route::post('/perfil/{user}', [PerfilController::class, 'store']);
+Route::get('/perfil/{id}', [PerfilController::class, 'show']);
 Route::get('/perfil', [PerfilController::class, 'index']);
 
 //Routes of Attendences

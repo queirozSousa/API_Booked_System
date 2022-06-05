@@ -61,7 +61,12 @@ class PerfilController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $perfil = Perfil::where('user_id', $id)->first();
+
+        //return dd($perfil);
+        return response()->json($perfil, 201);
+
     }
 
     /**
