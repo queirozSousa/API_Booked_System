@@ -69,6 +69,13 @@ class PerfilController extends Controller
 
     }
 
+    public function data($id){
+        $number = Perfil::where("user_id", $id)->count();
+        return response()->json($number, 201);
+
+        //return dd($perfil);
+    }
+
     /**
      * Update the specified resource in storage.
      *
