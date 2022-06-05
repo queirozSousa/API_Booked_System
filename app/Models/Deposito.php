@@ -9,7 +9,7 @@ class Deposito extends Model
 {
     use HasFactory;
 
-    protected $table = 'attendence';
+    protected $table = 'deposit';
     protected $primaryKey = 'id';
 
     protected $fillable =

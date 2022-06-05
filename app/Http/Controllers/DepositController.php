@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Perfil;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\Atendimento;
+use App\Models\Deposito;
 
 class DepositController extends Controller
 {
@@ -13,7 +18,8 @@ class DepositController extends Controller
      */
     public function index()
     {
-        //
+        //All Deposit List
+        return Deposito::all();
     }
 
     /**
@@ -22,9 +28,16 @@ class DepositController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,  User $user)
     {
-        //
+        //Save one Deposit
+        $deposito = new Deposito();
+
+        $deposito->fill($request->all());
+
+        $user->perfil()->save($deposito);
+
+        return response()->json($deposito, 201);
     }
 
     /**

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Perfil;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\Atendimento;
 
 class AttendenceController extends Controller
 {
@@ -13,7 +17,8 @@ class AttendenceController extends Controller
      */
     public function index()
     {
-        //
+        //Reurn all Attendence
+        return Atendimento::all();
     }
 
     /**
@@ -22,9 +27,16 @@ class AttendenceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
-        //
+        //Store the Attendence
+        $atendimento = new Atendimento();
+
+        $atendimento->fill($request->all());
+
+        $user->perfil()->save($atendimento);
+
+        return response()->json($atendimento, 201);
     }
 
     /**

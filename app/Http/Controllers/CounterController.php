@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Balcao;
 
 class CounterController extends Controller
 {
@@ -13,7 +14,9 @@ class CounterController extends Controller
      */
     public function index()
     {
-        //
+        //Reurn all Counters
+        return Balcao::all();
+
     }
 
     /**
@@ -25,6 +28,11 @@ class CounterController extends Controller
     public function store(Request $request)
     {
         //
+        $balcao = new Balcao();
+
+        $balcao = Balcao::create($request->all());
+
+        return response()->json($balcao, 201);
     }
 
     /**

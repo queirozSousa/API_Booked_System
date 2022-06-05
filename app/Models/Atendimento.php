@@ -9,7 +9,7 @@ class Atendimento extends Model
 {
     use HasFactory;
 
-    protected $table = 'attendence';
+    protected $table = 'attendece';
     protected $primaryKey = 'id';
 
     protected $fillable =
